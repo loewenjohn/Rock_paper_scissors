@@ -7,26 +7,88 @@
 </head>
 <body>
     <script>
+        
+        
                 
-        function computerChoice (Rock, Paper, Scisssors) {           
-            const i = Math.floor(Math.random() * ( 4 - 1) + 1);
-            
-            if (i == 1) {
-                return "Rock"
-            } else if (i == 2) {
-                return "paper"
+        function getComputerChoice() {  
+                  
+            const i = Math.floor(Math.random() * 3);
+            let computerMove;
+            if (i === 1) {
+             computerMove = "Rock"
+            } else if (i === 2) {
+             computerMove = "paper"
             } else {
-                return "scissor"
+             computerMove = "scissor"
             }
 
-            return i
+            return computerMove
             }
 
-        function humanChoice (Rock, Paper, Scissors) {
-            let player = prompt("Rock Paper or scissors?,player");
-
-
+        function getHumanChoice() {
+            let player = prompt("Rock Paper or scissors?");
+            return player.toLowerCase()
         }
+
+        let humanScore = 0;
+        let computerScore = 0;
+
+        function playRound (humanChoice, computerChoice) {
+            
+
+            if ( humanChoice === computerChoice ) {
+             console.log("It/'s a tie!")
+            } else if (humanChoice === "Rock" && computerChoice === "Paper") {
+             console.log("You lose, Paper beats Rock")
+            } else if (humanChoice === "Rock" && computerChoice === "Scissors") {
+             console.log("You win! Rock beats Scissors")
+            } else if (humanChoice === "Paper" && computerChoice === "Rock") {
+             console.log("You Win! Paper beats Rock")
+            } else if (humanChoice === "Paper" && computerChoice === "Scissors") {
+             console.log("You lose, Scissors beats Paper")
+            } else if (humanChoice === "Scissors" && computerChoice === "Paper") {
+             console.log("You win! Scissors beats paper")
+            } else if (humanChoice === "Scissors" && computerChoice === "Rock") {
+                console.log("You lose! Rock beats Scissors")
+            } else {
+                return "Not a valid input"
+            }
+        }
+
+            
+
+            
+        
+
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
+
+        playRound(humanSelection, computerSelection);
+        
+            
+            
+
+        
+            
+            
+                
+            
+            
+        
+            
+
+
+            
+            
+            
+
+
+                    
+            
+
+            
+            
+        
 
             
             
